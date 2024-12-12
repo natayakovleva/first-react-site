@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -17,7 +18,10 @@ const DesktopSidebar = () => {
           <img src="/mobile-logo.svg" alt="logo" className="block md:hidden" />
         </div>
         <ul className="flex flex-col items-center md:items-start gap-8">
-          {/* <Link>12</Link> */}
+          <Link to={'/'} className="flex gap-1">
+            {/* <Home /> */}
+            <span>Home</span>
+          </Link>
         </ul>
       </div>
     </div>
