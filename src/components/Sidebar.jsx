@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Home, Heart } from "lucide-react";
 
 export default function Sidebar() {
   return (
@@ -6,7 +7,7 @@ export default function Sidebar() {
       <DesktopSidebar />
       <MobileSidebar />
     </>
-  )
+  );
 }
 
 const DesktopSidebar = () => {
@@ -18,20 +19,29 @@ const DesktopSidebar = () => {
           <img src="/mobile-logo.svg" alt="logo" className="block md:hidden" />
         </div>
         <ul className="flex flex-col items-center md:items-start gap-8">
-          <Link to={'/'} className="flex gap-1">
-            {/* <Home /> */}
-            <span>Home</span>
+          <Link to={"/"} className="flex gap-1">
+            <Home size={"24"} />
+            <span className="font-bold hidden md:block">Home</span>
+          </Link>
+          <Link to={"/favorites"} className="flex gap-1">
+            <Heart size={"24"} />
+            <span className="font-bold hidden md:block">Favorites</span>
           </Link>
         </ul>
       </div>
     </div>
   );
-}
+};
 
 const MobileSidebar = () => {
   return (
-    <div>
-      321
+    <div className="flex justify-center gap-10 border-t fixed w-full bottom-0 left-0 bg-red z-10 p-2 sm:hidden">
+      <Link to={"/"}>
+        <Home size={"24"} className="cursor-pointer" />
+      </Link>
+      <Link to={"/favorites"}>
+        <Heart size={"24"} className="cursor-pointer" />
+      </Link>
     </div>
   );
-}
+};
